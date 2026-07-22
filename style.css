@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #121212;
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    min-height: calc(100vh - 40px); /* ✅ CORREÇÃO: altura mínima de tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#telaInicial {
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 5;
+}
+
+header h1 {
+    color: #ff4655;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+#btnSortear {
+    background: #ff4655;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 30px 0;
+    transition: 0.3s;
+}
+
+#btnSortear:hover {
+    background: #d6303c;
+    transform: scale(1.05);
+}
+
+.area-envelope {
+    height: 180px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20%; /* ✅ Ajustado para ficar no lugar certo */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.envelope {
+    font-size: 110px;
+    position: relative;
+    animation: cair 1.3s ease-out forwards;
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.envelope:hover {
+    transform: scale(1.1);
+}
+
+/* Cores dos envelopes */
+.facil { filter: drop-shadow(0 0 18px #22c55e); color: #22c55e; }
+.medio { filter: drop-shadow(0 0 18px #eab308); color: #eab308; }
+.dificil { filter: drop-shadow(0 0 18px #ef4444); color: #ef4444; }
+.insano { filter: drop-shadow(0 0 18px #ffffff); color: #000; background: #fff; padding: 10px; border-radius: 12px; }
+
+@keyframes cair {
+    from { top: -350px; opacity: 0; }
+    to { top: 0; opacity: 1; }
+}
+
+.area-carta {
+    position: absolute;
+    top: 48%; /* ✅ Ajustado para ficar abaixo do envelope */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 520px;
+    display: none;
+    z-index: 10;
+}
+
+.carta {
+    background: #1e1e1e;
+    padding: 28px 22px;
+    border-radius: 14px;
+    border: 4px solid;
+    font-size: 19px;
+    line-height: 1.6;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.carta h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.btn-outro {
+    position: absolute;
+    bottom: 8%; /* ✅ Agora aparece sempre embaixo */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    transition: 0.3s;
+    z-index: 15;
+    white-space: nowrap;
+}
+
+.btn-outro:hover {
+    background: #15803d;
+    transform: translateX(-50%) scale(1.05);
+}
